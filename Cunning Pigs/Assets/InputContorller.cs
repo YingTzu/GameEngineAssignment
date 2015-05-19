@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class InputContorller : MonoBehaviour {
-	public GameObject target;
 	public float moveSpeed = 1.0f;
 
 	// Use this for initialization
@@ -12,14 +11,27 @@ public class InputContorller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-//		if (Input.GetKey (KeyCode.UpArrow))
-//			target.transform.position.y -= moveSpeed;
-//		if (Input.GetKey (KeyCode.DownArrow))
-//			target.transform.position.y += moveSpeed;
-//		if (Input.GetKey (KeyCode.LeftArrow))
-//			target.transform.position.x-= moveSpeed;
-//		if (Input.GetKey (KeyCode.RightArrow))
-//			target.transform.position.x += moveSpeed;
+		Vector2 temp = transform.position;
+		if (Input.GetKey (KeyCode.UpArrow))
+		{
+			temp.y += 1;
+			transform.position = temp;
+		}
+		else if (Input.GetKey (KeyCode.DownArrow))
+		{
+			temp.y -= 1;
+			transform.position = temp;
+		}
+		else if (Input.GetKey (KeyCode.LeftArrow))
+		{
+			temp.x -= 1;
+			transform.position = temp;
+		}
+		else if (Input.GetKey (KeyCode.RightArrow))
+		{
+			temp.x += 1;
+			transform.position = temp;
+		}
 
 	}
 }
