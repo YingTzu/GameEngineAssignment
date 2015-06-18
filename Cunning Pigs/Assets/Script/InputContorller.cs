@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InputContorller : MonoBehaviour {
-	public float moveSpeed = 1.0f;
+	public float moveSpeed = 0.05f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,24 +14,23 @@ public class InputContorller : MonoBehaviour {
 		Vector2 temp = transform.position;
 		if (Input.GetKey (KeyCode.UpArrow))
 		{
-			temp.y += 1;
+			temp.y += moveSpeed;
 			transform.position = temp;
 		}
 		else if (Input.GetKey (KeyCode.DownArrow))
 		{
-			temp.y -= 1;
+			temp.y -= moveSpeed;
 			transform.position = temp;
 		}
 		else if (Input.GetKey (KeyCode.LeftArrow))
 		{
-			temp.x -= 1;
+			temp.x -= moveSpeed;
 			transform.position = temp;
 		}
 		else if (Input.GetKey (KeyCode.RightArrow))
 		{
-			temp.x += 1;
+			temp.x += moveSpeed;
 			transform.position = temp;
 		}
-
 	}
 }
