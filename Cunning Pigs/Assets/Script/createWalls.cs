@@ -2,30 +2,45 @@
 using System.Collections;
 
 public class createWalls : MonoBehaviour {
-	public GameObject horWalls;
-	public GameObject verWalls;
-	public float gap = 0.1f;
+	private int levelWidth;
+	private int levelHeight;
+
+	//public Transform backgroundTile;
+	public Transform strawWallTile;
+
+	private Color[] tileColours;
+
+	public Color backgroundColour;
+	public Color strawWallColour;
+
+	public Texture2D levelTexture;
 
 	// Use this for initialization
 	void Start () {
-		//GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-		for (int x = 0; x < 15; x++) {
-			Instantiate(horWalls, new Vector3(x+x*gap - 1, 16, 0), Quaternion.identity);
-		}
-
-		for (int x = 0; x < 15; x++) {
-			Instantiate(horWalls, new Vector3(x+x*gap -1, -16, 0), Quaternion.identity);
-		}
-
-		for (int y = 0; y < 25; y++) {
-			Instantiate(verWalls, new Vector3(-9, y+y*gap -13.5f, 0), Quaternion.identity);
-		}
-		for (int y = 0; y < 25; y++) {
-			Instantiate(verWalls, new Vector3(23, y+y*gap -13.5f, 0), Quaternion.identity);
-		}
+		levelWidth = levelTexture.width;
+		levelHeight = levelTexture.height;
+		loadLevel ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+	}
+
+	void loadLevel()
+	{
+		//set tile colours to be new color
+		tileColours =  new Color[levelWidth + levelHeight];
+		tileColours = levelTexture.GetPixels();
+
+		for(int y = 0; y < levelHeight; y++)
+		{
+			for(int x = 0; x < levelWidth; x++)
+			{
+//				if(tileColours[x+y*levelWidth] == backgroundColour)
+//					Instantiate(backgroundTile, new Vector3(x, y), Quaternion.identity);
+				if(tileColours[x+y*levelWidth] == strawWallColour)
+					Instantiate(strawWallTile, new Vector3(x, y), Quaternion.identity);
+			}
+		}
 	}
 }
