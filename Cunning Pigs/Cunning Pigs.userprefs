@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Level3.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\exit.cs">
     <Files>
-      <File FileName="Assets\Script\Level3.cs" Line="16" Column="32" />
-      <File FileName="Assets\Script\Level1.cs" Line="19" Column="35" />
-      <File FileName="Assets\Script\Camera.cs" Line="13" Column="36" />
+      <File FileName="Assets\Script\Level2.cs" Line="27" Column="18" />
+      <File FileName="Assets\Script\Camera.cs" Line="15" Column="1" />
+      <File FileName="Assets\Script\exit.cs" Line="13" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

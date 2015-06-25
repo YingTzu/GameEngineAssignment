@@ -50,6 +50,7 @@
      <Compile Include="Assets\Script\Camera.cs" />
      <Compile Include="Assets\Script\InputContorller.cs" />
      <Compile Include="Assets\Script\Level1.cs" />
+     <Compile Include="Assets\Script\Level2.cs" />
      <Compile Include="Assets\Script\Level3.cs" />
      <Compile Include="Assets\Script\PlayerMovement.cs" />
      <Compile Include="Assets\Script\exit.cs" />
