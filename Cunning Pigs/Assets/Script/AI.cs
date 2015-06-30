@@ -29,7 +29,7 @@ public class AI : MonoBehaviour {
 				Chase ();
 		} 
 		else {
-			Idle ();
+			Idle (); //change later to something else maybe patrol
 		}
 	}
 	public void targetDetected(){
@@ -46,7 +46,7 @@ public class AI : MonoBehaviour {
 //		newPosition.y += Dir.normalized.y/20;
 //		transform.position = newPosition;
 
-		float MovementSpeed = 2.0f;//speed of ai chasing u
+		float MovementSpeed = 1.8f;//speed of ai chasing u
 		this.transform.position = Vector2.MoveTowards (this.transform.position, Target.transform.position, MovementSpeed * Time.deltaTime);
 	}
 	void Idle(){
