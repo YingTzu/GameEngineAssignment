@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\AI.cs" />
      <Compile Include="Assets\Script\ButtonScript.cs" />
      <Compile Include="Assets\Script\Camera.cs" />
+     <Compile Include="Assets\Script\Detect.cs" />
      <Compile Include="Assets\Script\InputContorller.cs" />
      <Compile Include="Assets\Script\Level1.cs" />
      <Compile Include="Assets\Script\Level2.cs" />
