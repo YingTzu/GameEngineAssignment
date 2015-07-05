@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class wavePoint : MonoBehaviour {
+	
 	public Transform[] Waypoints;
 	public float m_speed;
 	public int curWayPoint;
@@ -9,8 +10,6 @@ public class wavePoint : MonoBehaviour {
 	public Vector3 Target;
 	public Vector3 MoveDirection;
 	public Vector3 Velocity;
-	
-	private bool Inited = false;
 	
 	public float rTime;
 	public float fTime = 0.0f;
@@ -28,69 +27,64 @@ public class wavePoint : MonoBehaviour {
 
 	void Aggro(Vector3 tarPos)
 	{
-
 		Target = tarPos;
 		MoveDirection = Target - transform.position;
 		Velocity = GetComponent<Rigidbody2D>().velocity;
 		Velocity = MoveDirection.normalized * m_speed;
-		
-		Vector3 PFacingDir = new Vector3 (Target.x, Target.y, 0) - transform.position;
 
-		if (Velocity.y > 0 && Velocity.y < 0.1)
+		if (Velocity.y > 0 && Velocity.y < 0.01)
 			Velocity.y = 0;
-		if (Velocity.x > 0 && Velocity.x < 0.1)
+		if (Velocity.x > 0 && Velocity.x < 0.01)
 			Velocity.x = 0;
 
-		if (Velocity.y < 0 && Velocity.y > -0.1)
+		if (Velocity.y < 0 && Velocity.y > -0.01)
 			Velocity.y = 0;
-		if (Velocity.x < 0 && Velocity.x > -0.1)
+		if (Velocity.x < 0 && Velocity.x > -0.01)
 			Velocity.x = 0;
 
 		if (Velocity.y >= 0 && Velocity.x == 0) 
 		{
-			if(GameObject.Find("pig1"))
+			if(GameObject.FindWithTag("pig1"))
 			{
-				GetComponent<Animator>().SetInteger ("pigType", 4);
+				GetComponent<Animator>().SetInteger("pigType", 4);
 			}
-			else if(GameObject.Find("pig2"))
+			if(GameObject.FindWithTag("pig2"))
 			{
 				GetComponent<Animator>().SetInteger ("pig2Type", 4);
 			}
 		}
 		else if (Velocity.y <= 0 && Velocity.x == 0) 
 		{
-			if(GameObject.Find("pig1"))
+			if(GameObject.FindWithTag("pig1"))
 			{
 				GetComponent<Animator>().SetInteger ("pigType", 3);
 			}
-			else if(GameObject.Find("pig2"))
+			if(GameObject.FindWithTag("pig2"))
 			{
 				GetComponent<Animator>().SetInteger ("pig2Type", 3);
 			}
-
 		}
 		if (Velocity.x >= 0 && Velocity.y == 0) 
 		{
-			if(GameObject.Find("pig1"))
+			if(GameObject.FindWithTag("pig1"))
 			{
 				GetComponent<Animator>().SetInteger ("pigType", 2);
 			}
-			else if(GameObject.Find("pig2"))
+			if(GameObject.FindWithTag("pig2"))
 			{
 				GetComponent<Animator>().SetInteger ("pig2Type", 2);
 			}
 		}
 		else if (Velocity.x <= 0 && Velocity.y == 0) 
 		{
-			if(GameObject.Find("pig1"))
+			if(GameObject.FindWithTag("pig1"))
 			{
 				GetComponent<Animator>().SetInteger ("pigType", 1);
 			}
-			else if(GameObject.Find("pig2"))
+			if(GameObject.FindWithTag("pig2"))
 			{
 				GetComponent<Animator>().SetInteger ("pig2Type", 1);
 			}
-
 		}
 	}
 
@@ -105,22 +99,8 @@ public class wavePoint : MonoBehaviour {
 		}
 	}
 
-	void UpdateState() 
-	{
-		rTime += Time.deltaTime;
-		
-		if (rTime > 3 && !Inited)
-		{
-			u_state = state.MOVE;
-			Inited = true;
-			rTime = 0.0f;
-		}
-	}
-
 	void Update () 
 	{
-		UpdateState ();
-		
 		GetComponent<Rigidbody2D>().velocity = Velocity;
 		
 		switch (u_state) 
@@ -130,7 +110,6 @@ public class wavePoint : MonoBehaviour {
 				if (curWayPoint < Waypoints.Length)
 				{
 					Aggro(Waypoints[curWayPoint].position);
-					
 					if (MoveDirection.magnitude < 0.1f) // reach waypoint
 						curWayPoint ++;	
 				}
@@ -145,12 +124,10 @@ public class wavePoint : MonoBehaviour {
 			break;
 
 			case state.IDLE:
-				
 			default:
 				Velocity.Set(0,0,0);
 				break;
 			
 		}
-		
 	}
 }
