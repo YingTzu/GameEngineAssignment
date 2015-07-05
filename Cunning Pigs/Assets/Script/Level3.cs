@@ -36,7 +36,7 @@ public class Level3 : MonoBehaviour {
 				//				if(tileColours[x+y*levelWidth] == backgroundColour)
 				//					Instantiate(backgroundTile, new Vector3(x, y), Quaternion.identity);
 				if(tileColours[x+y*levelWidth] == brickWallColour)
-					Instantiate(brickWallTile, new Vector3(x, y), Quaternion.identity);
+					Instantiate(brickWallTile, new Vector3(x, y,1), Quaternion.identity);
 			}
 		}
 	}

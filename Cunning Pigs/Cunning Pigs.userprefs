@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\AI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Level2.cs">
     <Files>
-      <File FileName="Assets\Script\Detect.cs" Line="3" Column="1" />
-      <File FileName="Assets\Script\AI.cs" Line="3" Column="1" />
+      <File FileName="Assets\Script\Level2.cs" Line="26" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
