@@ -29,61 +29,44 @@ public class wavePoint : MonoBehaviour {
 	{
 		Target = tarPos;
 		MoveDirection = Target - transform.position;
-		Velocity = GetComponent<Rigidbody2D>().velocity;
+		Velocity = GetComponent<Rigidbody2D> ().velocity;
 		Velocity = MoveDirection.normalized * m_speed;
 
-		if (Velocity.y > 0 && Velocity.y < 0.01)
-			Velocity.y = 0;
-		if (Velocity.x > 0 && Velocity.x < 0.01)
-			Velocity.x = 0;
+		if (MoveDirection.y > 0) {
+			if (GameObject.FindWithTag ("pig1")) {
+				GetComponent<Animator> ().SetInteger ("pigType", 4);
+			} else if (GameObject.FindWithTag ("pig2")) {
+				GetComponent<Animator> ().SetInteger ("pig2Type", 4);
+			}else if (GameObject.FindWithTag ("pig3")) {
+				GetComponent<Animator> ().SetInteger ("pig3Type", 4);
+			}
+		}
+		if (MoveDirection.y < 0) {
+			if (GameObject.FindWithTag ("pig1")) {
+				GetComponent<Animator> ().SetInteger ("pigType", 3);
+			} else if (GameObject.FindWithTag ("pig2")) {
+				GetComponent<Animator> ().SetInteger ("pig2Type", 3);
+			}else if (GameObject.FindWithTag ("pig3")) {
+				GetComponent<Animator> ().SetInteger ("pig3Type", 3);
+			}
+		}
 
-		if (Velocity.y < 0 && Velocity.y > -0.01)
-			Velocity.y = 0;
-		if (Velocity.x < 0 && Velocity.x > -0.01)
-			Velocity.x = 0;
-
-		if (Velocity.y >= 0 && Velocity.x == 0) 
-		{
-			if(GameObject.FindWithTag("pig1"))
-			{
-				GetComponent<Animator>().SetInteger("pigType", 4);
-			}
-			if(GameObject.FindWithTag("pig2"))
-			{
-				GetComponent<Animator>().SetInteger ("pig2Type", 4);
+		if (MoveDirection.x > 0) {
+			if (GameObject.FindWithTag ("pig1")) {
+				GetComponent<Animator> ().SetInteger ("pigType", 2);
+			} else if (GameObject.FindWithTag ("pig2")) {
+				GetComponent<Animator> ().SetInteger ("pig2Type", 2);
+			}else if (GameObject.FindWithTag ("pig3")) {
+				GetComponent<Animator> ().SetInteger ("pig3Type", 2);
 			}
 		}
-		else if (Velocity.y <= 0 && Velocity.x == 0) 
-		{
-			if(GameObject.FindWithTag("pig1"))
-			{
-				GetComponent<Animator>().SetInteger ("pigType", 3);
-			}
-			if(GameObject.FindWithTag("pig2"))
-			{
-				GetComponent<Animator>().SetInteger ("pig2Type", 3);
-			}
-		}
-		if (Velocity.x >= 0 && Velocity.y == 0) 
-		{
-			if(GameObject.FindWithTag("pig1"))
-			{
-				GetComponent<Animator>().SetInteger ("pigType", 2);
-			}
-			if(GameObject.FindWithTag("pig2"))
-			{
-				GetComponent<Animator>().SetInteger ("pig2Type", 2);
-			}
-		}
-		else if (Velocity.x <= 0 && Velocity.y == 0) 
-		{
-			if(GameObject.FindWithTag("pig1"))
-			{
-				GetComponent<Animator>().SetInteger ("pigType", 1);
-			}
-			if(GameObject.FindWithTag("pig2"))
-			{
-				GetComponent<Animator>().SetInteger ("pig2Type", 1);
+		if (MoveDirection.x < 0) {
+			if (GameObject.FindWithTag ("pig1")) {
+				GetComponent<Animator> ().SetInteger ("pigType", 1);
+			} else if (GameObject.FindWithTag ("pig2")) {
+				GetComponent<Animator> ().SetInteger ("pig2Type", 1);
+			}else if (GameObject.FindWithTag ("pig3")) {
+				GetComponent<Animator> ().SetInteger ("pig3Type", 1);
 			}
 		}
 	}
