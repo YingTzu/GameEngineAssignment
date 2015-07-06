@@ -58,6 +58,7 @@
      <Compile Include="Assets\Script\Level3.cs" />
      <Compile Include="Assets\Script\PlayerMovement.cs" />
      <Compile Include="Assets\Script\exit.cs" />
+     <Compile Include="Assets\Script\spawnSheep.cs" />
      <Compile Include="Assets\Script\wavePoint.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
