@@ -49,6 +49,7 @@
      <Compile Include="Assets\Script\AI.cs" />
      <Compile Include="Assets\Script\ButtonScript.cs" />
      <Compile Include="Assets\Script\Camera.cs" />
+     <Compile Include="Assets\Script\Collectibles.cs" />
      <Compile Include="Assets\Script\Detect.cs" />
      <Compile Include="Assets\Script\GameWin.cs" />
      <Compile Include="Assets\Script\InputContorller.cs" />
