@@ -4,11 +4,13 @@ using System.Collections;
 public class spawnSheep : MonoBehaviour {
 	public GameObject sheep;
 	public int numberOfSheep = 7;
-	public int min = 1;
-	public int max = 62;
+	public int min;
+	public int max;
 
 	void Start () {
 		PlaceSheep ();
+		min = 1;
+		max = 45;
 	}
 
 	void Update () {
