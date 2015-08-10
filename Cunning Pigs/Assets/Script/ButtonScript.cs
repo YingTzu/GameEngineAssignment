@@ -19,9 +19,11 @@ public class ButtonScript : MonoBehaviour
 
 		resetOptionAppear = false;
 
-		ResetOptions.enabled = false;
-		YesButton.enabled = false;
-		NoButton.enabled = false;
+		if (Application.loadedLevelName == "Option") {
+			ResetOptions.enabled = false;
+			YesButton.enabled = false;
+			NoButton.enabled = false;
+		}
 	}
 
 	void Update () {
@@ -30,6 +32,11 @@ public class ButtonScript : MonoBehaviour
 	public void startGame()
 	{
 		Application.LoadLevel("LevelSelect");
+	}
+
+	public void optionGame()
+	{
+		Application.LoadLevel("Option");
 	}
 
 	public void exitGame()
@@ -50,6 +57,11 @@ public class ButtonScript : MonoBehaviour
 	public void selectLevel3()
 	{
 		Application.LoadLevel("Level 3");
+	}
+
+	public void backToMenu()
+	{
+		Application.LoadLevel("Menu");
 	}
 
 	public void ResetUserData()

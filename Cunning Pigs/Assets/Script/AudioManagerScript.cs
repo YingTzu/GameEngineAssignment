@@ -44,16 +44,26 @@ public class AudioManagerScript : MonoBehaviour {
 			{
 			case "Menu":
 			case "Option":
+			case "LevelSelect":
 				playSong ((int) 0);
 				break;
 
 			
 			
 			case "Level 1":
+				playSong ((int) 1);
+				break;
 			case "Level 2":
+				playSong ((int) 2);
+				break;
 	     	case "Level 3":
 		
-				playSong ((int) 1);
+				playSong ((int) 3);
+				break;
+
+			case "GameWin":
+				
+				playSong ((int) 4);
 				break;
 
 		

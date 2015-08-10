@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\AI.cs" />
      <Compile Include="Assets\Script\AudioManagerScript.cs" />
+     <Compile Include="Assets\Script\AudioScript.cs" />
      <Compile Include="Assets\Script\ButtonScript.cs" />
      <Compile Include="Assets\Script\CheckLevelUnlocked.cs" />
      <Compile Include="Assets\Script\Collectibles.cs" />
