@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class wavePoint : MonoBehaviour {
 	public Transform[] wayPoints;
@@ -11,8 +12,20 @@ public class wavePoint : MonoBehaviour {
 
 	public bool moveBack;
 
+	public Image ResetOptions;
+	public Image KillButton;
+	public Image SpareButton;
+
+	private GameObject pigPop;
+
+
 	void Start ()
 	{
+		pigPop = GameObject.Find ("PigPop");
+		ResetOptions.enabled = false;
+		KillButton.enabled = false;
+		SpareButton.enabled = false;
+
 		moveSpeed = 2;
 		transform.position = wayPoints [0].position;
 		currentPoint = 0;
@@ -84,5 +97,32 @@ public class wavePoint : MonoBehaviour {
 				GetComponent<Animator> ().SetInteger ("pig3Type", 1);
 			}
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D collider)
+	{
+		if (collider.gameObject.tag == "Player") 
+		{
+			moveSpeed = 0;
+			ResetOptions.enabled = true;
+			KillButton.enabled = true;
+			SpareButton.enabled = true;
+		}
+	}
+
+	public void killButton()
+	{
+		//pig die
+		Destroy (this.gameObject);
+		ResetOptions.enabled = false;
+		KillButton.enabled = false;
+		SpareButton.enabled = false;
+	}
+	
+	public void spareButton()
+	{
+		ResetOptions.enabled = false;
+		KillButton.enabled = false;
+		SpareButton.enabled = false;
 	}
 }
