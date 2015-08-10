@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\ButtonScript.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\ScoreGenerator.cs">
     <Files>
-      <File FileName="Assets\Script\AudioManagerScript.cs" Line="21" Column="4" />
-      <File FileName="Assets\Script\cameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\ButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\ScoreGenerator.cs" Line="10" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

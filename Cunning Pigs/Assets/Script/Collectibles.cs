@@ -7,9 +7,9 @@ public class Collectibles : MonoBehaviour {
 
 void OnTriggerEnter2D(Collider2D collider)
 	{
-		ScoreGenerator.AddScore (ScoreAdd);
-
-		if (collider.gameObject.tag == "Player") {
+		if (collider.gameObject.tag == "Player") 
+		{
+			ScoreGenerator.AddScore (ScoreAdd);
 			Destroy (this.gameObject);
 		}
 	}
