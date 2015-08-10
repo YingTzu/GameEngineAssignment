@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO;
 
 public class ButtonScript : MonoBehaviour 
 {
@@ -13,6 +14,9 @@ public class ButtonScript : MonoBehaviour
 	public Image ResetOptions;
 
 	private GameObject popOut;
+
+	public string file2 = "Assets/Save2.txt";
+	public string file3 = "Assets/Save3.txt";
 
 	void Start () {
 		popOut = GameObject.Find ("PopOut");
@@ -71,7 +75,6 @@ public class ButtonScript : MonoBehaviour
 			ResetOptions.enabled = true;
 			YesButton.enabled = true;
 			NoButton.enabled = true;
-
 			resetOptionAppear = true;
 		} 
 	}
@@ -84,8 +87,17 @@ public class ButtonScript : MonoBehaviour
 		
 		resetOptionAppear = false;
 
-		PlayerPrefs.DeleteAll();
-		PlayerPrefs.SetInt ("Game_hasBeenPlayedBefore", 0);
+		PlayerPrefs.SetInt ("HighScore1", 0);
+		PlayerPrefs.SetInt ("HighScore2", 0);
+		PlayerPrefs.SetInt ("HighScore3", 0);
+
+		var sr = File.CreateText(file2);
+		sr.WriteLine ("0");
+		sr.Close();
+
+		var sr2 = File.CreateText(file3);
+		sr2.WriteLine ("0");
+		sr2.Close();
 	}
 
 	public void noButton()

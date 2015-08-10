@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AudioManagerScript : MonoBehaviour {
-	
+public class AudioManagerScript : MonoBehaviour 
+{
 	static AudioManagerScript instance;
 	
 	public AudioClip[] sList;
 	private bool soundPlaying = false;
 	private string loadedLevelName_temp;
-	
-
 
 	void Awake()
 	{
@@ -48,26 +46,26 @@ public class AudioManagerScript : MonoBehaviour {
 				playSong ((int) 0);
 				break;
 
-			
-			
 			case "Level 1":
 				playSong ((int) 1);
 				break;
+
 			case "Level 2":
 				playSong ((int) 2);
 				break;
+
 	     	case "Level 3":
-		
 				playSong ((int) 3);
 				break;
 
 			case "GameWin":
-				
 				playSong ((int) 4);
 				break;
 
-		
-				
+			case "GameLose":
+				playSong ((int) 5);
+				break;
+
 			default:
 				break;
 			}
