@@ -27,7 +27,7 @@ public class spawnObjects : MonoBehaviour {
 
 	Vector3 GeneratedPosition()
 	{
-		int x,y,z;
+		int x,y;
 		x = Random.Range(minX,maxX);
 		y = Random.Range(minY,maxY);
 		return new Vector3(x,y,0);

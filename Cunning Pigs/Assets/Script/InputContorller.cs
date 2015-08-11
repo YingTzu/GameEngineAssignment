@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InputContorller : MonoBehaviour {
-	public float moveSpeed = 0.05f;
+	public float moveSpeed;
 	public AnimationClip Up;
 	public AnimationClip Down;
 	public AnimationClip Left;
@@ -10,6 +10,7 @@ public class InputContorller : MonoBehaviour {
 	public AnimationClip Idle;
 	// Use this for initialization
 	void Start () {
+		moveSpeed = 4 * Time.deltaTime;
 	}
 	
 	// Update is called once per frame

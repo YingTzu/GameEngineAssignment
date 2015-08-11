@@ -68,6 +68,11 @@ public class ButtonScript : MonoBehaviour
 		Application.LoadLevel("Menu");
 	}
 
+	public void tutorial()
+	{
+		Application.LoadLevel("Tutorial");
+	}
+
 	public void ResetUserData()
 	{
 		if (resetOptionAppear == false) 

@@ -17,14 +17,17 @@ public class wavePoint : MonoBehaviour {
 	public Image SpareButton;
 
 	private GameObject pigPop;
-
+	public GameObject player;
 
 	void Start ()
 	{
 		pigPop = GameObject.Find ("PigPop");
-		ResetOptions.enabled = false;
-		KillButton.enabled = false;
-		SpareButton.enabled = false;
+		if (this.gameObject.name != "pig2Image") 
+		{
+			ResetOptions.enabled = false;
+			KillButton.enabled = false;
+			SpareButton.enabled = false;
+		}
 
 		moveSpeed = 2;
 		transform.position = wayPoints [0].position;
@@ -112,7 +115,6 @@ public class wavePoint : MonoBehaviour {
 
 	public void killButton()
 	{
-		//pig die
 		Destroy (this.gameObject);
 		ResetOptions.enabled = false;
 		KillButton.enabled = false;
@@ -121,6 +123,8 @@ public class wavePoint : MonoBehaviour {
 	
 	public void spareButton()
 	{
+		moveSpeed = 2;
+		player.GetComponent<PlayerMovement> ().getKey = true;
 		ResetOptions.enabled = false;
 		KillButton.enabled = false;
 		SpareButton.enabled = false;

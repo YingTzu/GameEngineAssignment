@@ -15,7 +15,12 @@ public class PlayerMovement : MonoBehaviour {
 	public Button left;
 	public Button right;
 
+	public Image key;
+
+	public bool getKey;
+
 	void Start () {
+		getKey = false;
 		moveSpeed = 4 * Time.deltaTime;
 		up.GetComponent<Image> ().CrossFadeAlpha (0, 1, false);
 		down.GetComponent<Image> ().CrossFadeAlpha (0, 1, false);
@@ -48,6 +53,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		characterMove ();
+
+		if (getKey == true)
+			key.enabled = true;
+		else
+			key.enabled = false;
 	}
 
 	void characterMove()

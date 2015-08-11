@@ -8,6 +8,8 @@ public class Transition : MonoBehaviour {
 	public string file2 = "Assets/Save2.txt";
 	public string file3 = "Assets/Save3.txt";
 
+	public GameObject player;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -15,40 +17,35 @@ public class Transition : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
 	{
-		if (coll.collider.gameObject.tag == "Player") 
+		if (coll.gameObject.tag == "Player") 
 		{
-			if(Application.loadedLevelName == "Level 1")
+			if(player.GetComponent<PlayerMovement> ().getKey == true)
 			{
-				var sr = File.CreateText(file);
-				sr.WriteLine ("1");
-				sr.Close();
+				if(Application.loadedLevelName == "Level 1")
+				{
+					var sr = File.CreateText(file);
+					sr.WriteLine ("1");
+					sr.Close();
+					Application.LoadLevel("Level 2");
+				}
+				else if(Application.loadedLevelName == "Level 2")
+				{
+					var sr = File.CreateText(file2);
+					sr.WriteLine ("1");
+					sr.Close();
+					Application.LoadLevel("Level 3f");
+				}
+				else if(Application.loadedLevelName == "Level 3")
+				{
+					var sr = File.CreateText(file3);
+					sr.WriteLine ("1");
+					sr.Close();
+					Application.LoadLevel("GameWin");
 
-				Application.LoadLevel("level 2");
+				}
 			}
-			else if(Application.loadedLevelName == "Level 2")
-			{
-				var sr = File.CreateText(file2);
-				sr.WriteLine ("1");
-				sr.Close();
-				Application.LoadLevel("level 3");
-			}
-			else if(Application.loadedLevelName == "Level 3")
-			{
-				var sr = File.CreateText(file3);
-				sr.WriteLine ("1");
-				sr.Close();
-
-				Application.LoadLevel("GameWin");
-
-			}
-
-
-				
-
-
 		}
-			//Application.LoadLevel("level 2");
 	}
 }
